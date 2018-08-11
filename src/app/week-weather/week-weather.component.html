@@ -1,0 +1,20 @@
+<div class="mainDiv">
+  <div class="dayBlock" *ngFor="let day of WeekWeather">
+
+        <p class="date">{{day.date | date : 'EEEE'}}</p>
+        <p class="day">{{day.date | date : 'd MMMM'}}</p>
+
+      <p class="temp">
+          <span class="caption">Temp: </span><span class="subsidiary">{{day.temp}}&deg;</span>
+      </p>
+      <div class="weatherIcon">
+          <img src='http://openweathermap.org/img/w/{{day.icon}}.png' alt="">
+        </div>
+      <p class="pressure">
+          <span class="caption">pressure: </span><span class="subsidiary">{{day.pressure}} hPa</span>
+      </p>
+      <p class="humidity">
+          <span class="caption">humidity: </span><span class="subsidiary">{{day.humidity}}%</span>
+      </p>
+  </div>
+  </div>

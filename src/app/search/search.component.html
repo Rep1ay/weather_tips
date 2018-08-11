@@ -1,0 +1,4 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <input placeholder="Enter the city..." name="city" ngModel required #city="ngModel" type="text">
+    <button class="button" (click) = "onSubmit(f)">Search</button>
+</form>
