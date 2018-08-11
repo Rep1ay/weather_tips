@@ -1,0 +1,10 @@
+html{
+    background: #77bbc7;
+}
+.alertsContainer .alertsRow.warn .messagepanel {
+    height: 51px !important;
+    padding: 15px !important;
+}
+.alertsContainer .material-icons {
+    padding-top: 0px !important;
+}
