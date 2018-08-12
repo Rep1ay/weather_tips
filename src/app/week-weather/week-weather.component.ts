@@ -15,7 +15,6 @@ export class WeekWeatherComponent implements OnInit {
   constructor(public wtService: WtService) { }
 
   ngOnInit() {
-    debugger
     this.wtService.getWeekWeather(localStorage.city, this.units).subscribe((res) => {
       try {
         const response = res.json();
