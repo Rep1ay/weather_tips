@@ -1,20 +1,18 @@
 .mainDiv{
     display: flex;
-    background: #77bbc7;
-    padding-top: 25px;
+    background: #73b7ca;
+    padding-top: 55px;
 }
 .dayBlock{
     width: 300px;
     height: 100%;
     margin: 10px 3%;
-    background: #6ed9de;
+    background: #88ccd0;
     padding: 0px 10px;
     text-align: center;
-    /* border: 4px solid #fff; */
     border-radius: 8px;
     box-shadow: 1px 1px 2px 2px #649ea9;
     transform: translate(0px, 0px);
-    transition: all 5s ease; 
 }
 p.date {
     font-size: 26px;
@@ -26,7 +24,15 @@ p.date {
 p.day{
     font-weight: bold;
 }
+p.temp,p.day{
+    margin-bottom: 5px;
+}
 span.caption{
+    color: #fff;
+}
+span.tempSub {
+    font-size: 26px;
+    font-weight: bold;
     color: #fff;
 }
 span.subsidiary{
@@ -35,4 +41,14 @@ span.subsidiary{
 
 body {
     background: #77bbc7;
+}
+
+/* MediaQueries */
+@media (min-width: 300px) and (max-width: 414px){
+    .mainDiv{
+        display: block;
+    }
+    .dayBlock{
+        width: auto;
+    }
 }

@@ -19,6 +19,7 @@ export class CurrentWeatherComponent implements OnInit {
   error: any;
   displayForcast = false;
   cityEntered = false;
+  displayForcastBtn = true;
   constructor( private wtService: WtService,
     private weekWeather: WeekWeatherComponent,
     private alerts: AlertsService
@@ -36,10 +37,11 @@ export class CurrentWeatherComponent implements OnInit {
                                         res.main.pressure
                                       );
     this.bindedCity = res.name;
+    this.displayForcastBtn = true;
+    this.displayForcast = false;
     if (!this.cityEntered) {
       this.cityEntered = !this.cityEntered;
     }
-    this.displayForcast = false;
   }
 
   showForcast() {

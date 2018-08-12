@@ -9,16 +9,20 @@ export class WtService {
   dailyUrl;
   url;
   weekUrl;
+  units = 'metric';
     constructor( private http: Http ) {
       this.url = 'http://api.openweathermap.org/data/2.5/';
       this.weekUrl = 'forecast';
       this.dailyUrl = 'weather';
     }
+    changeUnits(units) {
+      this.units = units;
+    }
     getDailyWeather(city) {
-      return this.http.get(this.url + this.dailyUrl + '?q=' + city + '&units=metric' + '&APPID=' + this.apiKey);
+      return this.http.get(this.url + this.dailyUrl + '?q=' + city + '&units=' + this.units + '&APPID=' + this.apiKey);
     }
 
     getWeekWeather(city) {
-      return this.http.get(this.url + this.weekUrl + '?q=' + city + '&units=metric' + '&APPID=' + this.apiKey);
+      return this.http.get(this.url + this.weekUrl + '?q=' + city + '&units=' + this.units + '&APPID=' + this.apiKey);
     }
 }

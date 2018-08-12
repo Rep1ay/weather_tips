@@ -5,19 +5,19 @@
 <div *ngIf="cityEntered" class="mainDiv">
     <div class="divInput">
         <app-search></app-search>
-      </div>
-  <div class="weatherBlock">
-      <h1>Weather in {{bindedCity}}</h1>
-      <p class="temp"><span>{{myWeather.temp}}&deg;</span></p>
-      <div class="weatherIcon">
-          <img src='http://openweathermap.org/img/w/{{myWeather.icon}}.png' alt="">
-      </div>
-      <p class="pressure"><span>pressure: </span><span>{{myWeather.pressure}} hPa</span></p> 
-      <p class="humidity"><span>humidity: </span><span>{{myWeather.humidity}}%</span></p>
-  </div>
-  <div class="forecastButton">
-        <!-- (click)="showForcast()"  -->
-      <button (click) ="displayForcast = true" class="button">Get 5-day forecast</button>
-  </div>
+    </div>
+    <div class="weatherBlock">
+        <h1>{{bindedCity}}</h1>
+        <p class="temp"><span>{{myWeather.temp}}&deg;</span></p>
+        <div class="weatherIcon">
+            <img src='http://openweathermap.org/img/w/{{myWeather.icon}}.png' alt="">
+        </div>
+        <p class="pressure"><span>Pressure: </span><span class="wData">{{myWeather.pressure}} hPa</span><span>Humidity: </span><span class="wData">{{myWeather.humidity}}%</span></p>
+        <div *ngIf="displayForcastBtn" class="forecastButton">
+                <!-- (click)="showForcast()"  -->
+            <button (click) ="displayForcast = true; displayForcastBtn = false" class="button">Get 5-day forecast</button>
+        </div>
+    </div>
+
 </div>
 <app-week-weather *ngIf="displayForcast"></app-week-weather>
