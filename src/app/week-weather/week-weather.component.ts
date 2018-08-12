@@ -9,6 +9,7 @@ import { WeekWeather} from '../week-weather';
 })
 export class WeekWeatherComponent implements OnInit {
   @Input() units: string;
+  unitSymbols;
   city: string;
   WeekWeather: WeekWeather[] = [];
   constructor(public wtService: WtService) { }
@@ -18,7 +19,7 @@ export class WeekWeatherComponent implements OnInit {
     this.wtService.getWeekWeather(localStorage.city, this.units).subscribe((res) => {
       try {
         const response = res.json();
-        this.units = this.units === 'metric' ?  String.fromCharCode(8451) : String.fromCharCode(8457);
+        this.unitSymbols = this.units === 'metric' ?  String.fromCharCode(8451) : String.fromCharCode(8457);
         this.renderWeekWeather(response);
       } catch (error) {
         console.error(error);
