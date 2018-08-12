@@ -8,6 +8,8 @@ import { WeekWeatherComponent } from './week-weather/week-weather.component';
 import { FormsModule } from '@angular/forms';
 import { OverlayComponent } from './overlay/overlay.component';
 import { SearchComponent } from './search/search.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { AlertsModule } from 'angular-alert-module';
 
 @NgModule({
@@ -22,6 +24,8 @@ import { AlertsModule } from 'angular-alert-module';
     BrowserModule,
     HttpModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,
     AlertsModule.forRoot()
   ],
   providers: [WtService, WeekWeatherComponent, CurrentWeatherComponent],

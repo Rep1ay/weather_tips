@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {WtService} from '../wt.service';
 import { WeekWeather} from '../week-weather';
 
@@ -8,14 +8,17 @@ import { WeekWeather} from '../week-weather';
   styleUrls: ['./week-weather.component.css']
 })
 export class WeekWeatherComponent implements OnInit {
+  @Input() units: string;
   city: string;
   WeekWeather: WeekWeather[] = [];
   constructor(public wtService: WtService) { }
 
   ngOnInit() {
-    this.wtService.getWeekWeather(localStorage.city).subscribe((res) => {
+    debugger
+    this.wtService.getWeekWeather(localStorage.city, this.units).subscribe((res) => {
       try {
         const response = res.json();
+        this.units = this.units === 'metric' ?  String.fromCharCode(8451) : String.fromCharCode(8457);
         this.renderWeekWeather(response);
       } catch (error) {
         console.error(error);

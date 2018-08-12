@@ -1,4 +1,4 @@
-input {
+input[type=text]{
     padding: 2px 5px;
     border-radius: 5px;
     border: none;
@@ -7,18 +7,14 @@ input {
     width: 30vw;
     min-width: 200px;
 }
-.button{
-    border-radius: 5px;
-    font-size: 16px;
-    background: #538588;
+
+form.radioUnits{
     color: #fff;
-    height: 33px;
-    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
 }
-.button:hover{
-     background: #5e9598;
-    box-shadow: 2px 2px 4px 0px #5c898c;
-    transition: all 0.3s ease;
-    cursor: pointer;
+.radioLab{
+    float: left;
+    margin-right: 15px;
 }
   

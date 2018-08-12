@@ -4,20 +4,18 @@
 </div>
 <div *ngIf="cityEntered" class="mainDiv">
     <div class="divInput">
-        <app-search></app-search>
+        <app-search [showRadio] = 'showRadio'></app-search>
     </div>
     <div class="weatherBlock">
-        <h1>{{bindedCity}}</h1>
-        <p class="temp"><span>{{myWeather.temp}}&deg;</span></p>
+        <h1>{{bindedCity}}</h1>       
+        <p class="temp"><span>{{myWeather.temp}} {{unitSymbol}}</span></p>
         <div class="weatherIcon">
             <img src='http://openweathermap.org/img/w/{{myWeather.icon}}.png' alt="">
         </div>
         <p class="pressure"><span>Pressure: </span><span class="wData">{{myWeather.pressure}} hPa</span><span>Humidity: </span><span class="wData">{{myWeather.humidity}}%</span></p>
         <div *ngIf="displayForcastBtn" class="forecastButton">
-                <!-- (click)="showForcast()"  -->
             <button (click) ="displayForcast = true; displayForcastBtn = false" class="button">Get 5-day forecast</button>
         </div>
     </div>
-
 </div>
-<app-week-weather *ngIf="displayForcast"></app-week-weather>
+<app-week-weather [units] = 'units' *ngIf="displayForcast"></app-week-weather>

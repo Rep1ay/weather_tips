@@ -1,4 +1,15 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-    <input placeholder="Enter the city..." name="city" ngModel required #city="ngModel" type="text">
+    <input  minlength='3' placeholder="Enter the city..." name="city" ngModel required #city="ngModel" type="text">
     <button class="button search" (click) = "onSubmit(f)">Search</button>
+</form>
+<form class="radioUnits" *ngIf="showRadio" (change)='changeUnits(units)' #unit="ngForm">
+        <label class="radioLab">metric
+            <input type="radio" value="metric" name="unit" [(ngModel)]="units"> 
+            <span class="checkmark"></span>
+        </label>
+        <label class="radioLab">imperial
+            <input type="radio" value="imperial" name="unit" [(ngModel)]="units"> 
+            <span class="checkmark"></span>
+        </label>
+       
 </form>

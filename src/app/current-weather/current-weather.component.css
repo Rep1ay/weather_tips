@@ -15,7 +15,10 @@
     text-align:center;
     background: linear-gradient(#4686ea, #78bcc7);
 }
-
+.unitsBtn{
+    font-size: 12px;
+    height: 25px;
+}
 span.wData {
     margin-right: 10px;
     color: #d5e4f5;

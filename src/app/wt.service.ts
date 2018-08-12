@@ -15,14 +15,12 @@ export class WtService {
       this.weekUrl = 'forecast';
       this.dailyUrl = 'weather';
     }
-    changeUnits(units) {
-      this.units = units;
-    }
-    getDailyWeather(city) {
-      return this.http.get(this.url + this.dailyUrl + '?q=' + city + '&units=' + this.units + '&APPID=' + this.apiKey);
+
+    getDailyWeather(city, units) {
+      return this.http.get(this.url + this.dailyUrl + '?q=' + city + '&units=' + units + '&APPID=' + this.apiKey);
     }
 
-    getWeekWeather(city) {
-      return this.http.get(this.url + this.weekUrl + '?q=' + city + '&units=' + this.units + '&APPID=' + this.apiKey);
+    getWeekWeather(city, units) {
+      return this.http.get(this.url + this.weekUrl + '?q=' + city + '&units=' + units + '&APPID=' + this.apiKey);
     }
 }

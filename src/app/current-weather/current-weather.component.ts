@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { WtService} from '../wt.service';
 import { CurrentWeather} from '../current-weather';
-import { FormsModule} from '@angular/forms';
-import {NgForm} from '@angular/forms';
 import { WeekWeatherComponent} from '../week-weather/week-weather.component';
-import { AlertsService } from 'angular-alert-module';
-// import {WeekWeatherComponent} from '../week-weather';
 
 @Component({
   selector: 'app-current-weather',
@@ -13,38 +9,47 @@ import { AlertsService } from 'angular-alert-module';
   styleUrls: ['./current-weather.component.css']
 })
 export class CurrentWeatherComponent implements OnInit {
+  @Output() setUnits = new EventEmitter <string>();
+  // @ViewChild('search')  private search: SearchComponent;
   myWeather: CurrentWeather;
   city: any;
   bindedCity: any;
   error: any;
+  units;
   displayForcast = false;
   cityEntered = false;
   displayForcastBtn = true;
+  unitSymbol = String.fromCharCode(8451);
+  showRadio = true;
   constructor( private wtService: WtService,
-    private weekWeather: WeekWeatherComponent,
-    private alerts: AlertsService
-  ) {
+                private weekWeather: WeekWeatherComponent) {
   }
 
-  ngOnInit() {
-  }
-  renderDailyWeather(response) {
-    const res =  response.json();
-    this.myWeather = new CurrentWeather(res.name,
-                                        res.main.temp,
-                                        res.weather[0].icon,
-                                        res.main.humidity,
-                                        res.main.pressure
-                                      );
-    this.bindedCity = res.name;
-    this.displayForcastBtn = true;
-    this.displayForcast = false;
-    if (!this.cityEntered) {
-      this.cityEntered = !this.cityEntered;
+    ngOnInit() {
     }
-  }
+    renderDailyWeather(response, units, showRadio) {
+      this.showRadio = showRadio;
+      this.units = units;
+      this.unitSymbol = units === 'metric' ?  String.fromCharCode(8451) : String.fromCharCode(8457);
+      this.displayForcastBtn = true;
+      this.displayForcast = false;
+      if (!this.cityEntered) {
+        this.cityEntered = !this.cityEntered;
+      }
+      const res =  response.json();
+      this.myWeather = new CurrentWeather(res.name,
+                                          res.main.temp,
+                                          units,
+                                          res.weather[0].icon,
+                                          res.main.humidity,
+                                          res.main.pressure
+                                        );
+      this.bindedCity = res.name;
+    }
 
-  showForcast() {
-    this.displayForcast = true;
-  }
+    // callWeekService() {
+    //   this.wtService.getWeekWeather(this.bindedCity, this.units).subscribe(
+    //     (res) => this.weekWeather.renderWeekWeather(res, this.units)
+    //   );
+    // }
 }
