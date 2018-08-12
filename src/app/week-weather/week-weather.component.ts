@@ -7,6 +7,7 @@ import { WeekWeather} from '../week-weather';
   templateUrl: './week-weather.component.html',
   styleUrls: ['./week-weather.component.css']
 })
+
 export class WeekWeatherComponent implements OnInit {
   @Input() units: string;
   unitSymbols;
