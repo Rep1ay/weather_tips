@@ -21,8 +21,7 @@ export class CurrentWeatherComponent implements OnInit {
   displayForcastBtn = true;
   unitSymbol = String.fromCharCode(8451);
   showRadio = true;
-  constructor( private wtService: WtService,
-                private weekWeather: WeekWeatherComponent) {
+  constructor( private wtService: WtService ) {
   }
 
     ngOnInit() {
@@ -46,10 +45,4 @@ export class CurrentWeatherComponent implements OnInit {
                                         );
       this.bindedCity = res.name;
     }
-
-    // callWeekService() {
-    //   this.wtService.getWeekWeather(this.bindedCity, this.units).subscribe(
-    //     (res) => this.weekWeather.renderWeekWeather(res, this.units)
-    //   );
-    // }
 }

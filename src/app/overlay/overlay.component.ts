@@ -10,10 +10,7 @@ import { CurrentWeatherComponent} from '../current-weather/current-weather.compo
   styleUrls: ['./overlay.component.css']
 })
 export class OverlayComponent implements OnInit {
-  constructor( private wtService: WtService,
-    private currentWeather: CurrentWeatherComponent,
-    private weekWeather: WeekWeatherComponent
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }

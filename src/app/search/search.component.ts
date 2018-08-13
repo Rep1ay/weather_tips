@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { WtService} from '../wt.service';
 import {FormsModule, NgForm } from '@angular/forms';
 import { CurrentWeatherComponent} from '../current-weather/current-weather.component';
-import { WeekWeatherComponent} from '../week-weather/week-weather.component';
 import { AlertsService } from 'angular-alert-module';
 @Component({  selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,7 +12,6 @@ export class SearchComponent implements OnInit {
   units = 'metric';
   constructor(private wtService: WtService,
               private currentWeather: CurrentWeatherComponent,
-              private weekWeather: WeekWeatherComponent,
               private alerts: AlertsService
             ) { }
 

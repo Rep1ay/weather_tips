@@ -40,5 +40,6 @@ export class WeekWeatherComponent implements OnInit {
   }
   handleError(error) {
     const errorMessage = error.json().message;
+    console.error(errorMessage);
   }
 }
