@@ -5,7 +5,7 @@ import { WeekWeather} from '../week-weather';
 @Component({
   selector: 'app-week-weather',
   templateUrl: './week-weather.component.html',
-  styleUrls: ['./week-weather.component.css']
+  styleUrls: ['./week-weather.component.less']
 })
 
 export class WeekWeatherComponent implements OnInit {

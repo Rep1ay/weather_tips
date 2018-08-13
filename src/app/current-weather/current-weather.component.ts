@@ -6,7 +6,7 @@ import { WeekWeatherComponent} from '../week-weather/week-weather.component';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
-  styleUrls: ['./current-weather.component.css']
+  styleUrls: ['./current-weather.component.less']
 })
 export class CurrentWeatherComponent implements OnInit {
   @Output() setUnits = new EventEmitter <string>();

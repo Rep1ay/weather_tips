@@ -45,6 +45,7 @@ export class SearchComponent implements OnInit {
   }
 
   changeUnits(units) {
+    this.units = units;
     const city = localStorage.city;
     this.onSubmit(city, units);
   }
